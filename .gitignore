@@ -1,1 +1,5 @@
+# Build System #
 node_modules/
+
+#Compiled Source #
+c/**/*
