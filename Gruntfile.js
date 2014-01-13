@@ -72,7 +72,8 @@ module.exports = function(grunt) {
           paths: ["less"]
         },
         files: {
-          "c/css/global.css": "less/global.less "
+          "templates/leaf-base/resources/c/css/global.css": "templates/leaf-base/resources/less/global.less"
+          // "c/css/global-fixed.css": "/templates/leaf-base/resources/less/global-fixed.less"
         }
       }
     },
