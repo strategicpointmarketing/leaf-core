@@ -1,72 +1,78 @@
-@index: @desktop-total-cols;
-@columns: @desktop-total-cols;
-@class-name: ~"@{index}of@{columns}";
+.overall-grid(@index, @columns, @prefix) {
 
-.grid-loop(@index) when (@index > 0) {
+    .grid-loop(@index) when (@index > 0) {
+        
+        @class-name: ~"@{index}of@{columns}";
 
-	// Start Second Loop
-	.grid-sub-loop(@index, @columns, @prefix) when (@index > 2) {
+        // Start Second Loop
+        .grid-sub-loop(@index, @columns, @prefix) when (@index > 2) {
 
-		@output: (100% * (@index / @columns));
+            @output: (100% * (@index / @columns));
 
-		.loop-check(@output) when not (@output = 100%) and not (@output = 75%) and not (@output = 50%) and not (@output = 25%) and not (@output = 33.33333333333333%) and not (@output = 66.66666666666666%) {
+            .loop-check(@output) when not (@output = 100%) and not (@output = 75%) and not (@output = 50%) and not (@output = 25%) and not (@output = 33.33333333333333%) and not (@output = 66.66666666666666%) {
 
-			// Create the class
-			.@{prefix}-@{class-name} {
-				width: (100% * (@index / @columns));
-			}
-		}
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    width: (100% * (@index / @columns));
+                }
+            }
 
-		.loop-check(@output) when (@output = 75%) {
+            .loop-check(@output) when (@output = 75%) {
 
-			// Create the class
-			.@{prefix}-@{class-name} {
-				&:extend(.gd-three-quarters);
-			}
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-three-quarters);
+                }
 
-		}
+            }
 
-		.loop-check(@output) when (@output = 25%) {
+            .loop-check(@output) when (@output = 25%) {
 
-			// Create the class
-			.@{prefix}-@{class-name} {
-				&:extend(.gd-quarter);
-			}
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-quarter);
+                }
 
-		}
+            }
 
-		.loop-check(@output) when (@output = 66.66666666666666%) {
+            .loop-check(@output) when (@output = 66.66666666666666%) {
 
-			// Create the class
-			.@{prefix}-@{class-name} {
-				&:extend(.gd-two-thirds);
-			}
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-two-thirds);
+                }
 
-		}
-		.loop-check(@output) when (@output = 33.33333333333333%) {
+            }
+            .loop-check(@output) when (@output = 33.33333333333333%) {
 
-			// Create the class
-			.@{prefix}-@{class-name} {
-				&:extend(.gd-third);
-			}
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-third);
+                }
 
-		}
-		
-		// Make all into just "loop-check" and call once.
-		.loop-check(@output);
+            }
+            
+            // Make all into just "loop-check" and call once.
+            .loop-check(@output);
 
-		.grid-sub-loop(@index - 1, @columns - 1, @prefix);
-	}
+            .grid-sub-loop(@index - 1, @columns - 1, @prefix);
+        }
 
-	.grid-sub-loop(0) {}
-	.grid-sub-loop(@index, @columns, @desktop-prefix);
-	// End Second Loop
+        .grid-sub-loop(0) {}
+        .grid-sub-loop(@index, @columns, @prefix);
+        // End Second Loop
 
-	// next iteration
-	.grid-loop(@index - 1);
+        // next iteration
+        .grid-loop(@index - 1);
+
+    }
+
+    // end the loop when index is 0
+    .grid-loop(0) {}
+    .grid-loop(@index);
 
 }
 
-// end the loop when index is 0
-.grid-loop(0) {}
-.grid-loop(@index);
+.overall-grid(@desktop-total-cols, @desktop-total-cols, @desktop-prefix);
+.overall-grid(@tablet-total-cols, @tablet-total-cols, @tablet-prefix);
+.overall-grid(@mobile-total-cols, @mobile-total-cols, @mobile-prefix);
