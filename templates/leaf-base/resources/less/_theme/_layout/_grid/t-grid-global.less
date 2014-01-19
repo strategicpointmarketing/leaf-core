@@ -26,4 +26,119 @@
 	width: 33.33333333333333%;
 }
 
-@import 't-grid-desktop.less';
+/*
+
+Responsive Grid Builder
+
+Description:
+This is a complicated LESS loop that runs and creates 
+classes for almost every grid type possible. This solution
+also replaces offsets by allowing more control.
+
+Class Syntax Exaples:
+The two examples below equate to 25% of the container width
+and are therefore interchangable.
+
+Example 1: 	gd-3of12: [prefix] - [itteration / percentage] of [total grid columns] 
+Example 2: 	gd-quarter: [prefix] - [whole word representation] 
+
+
+Example Markup:
+<div class="gd-row gt-row">
+	<div class="gd-columns gd-4of12 gt-columns gt-3of9">
+		// Some Content
+	</div>
+	<div class="gd-columns gd-4of12 gt-columns gt-3of9">
+		// Some Content
+	</div>
+	<div class="gd-columns gd-4of12 gt-columns gt-3of9">
+		// Some Content
+	</div>
+</div>
+
+*/
+
+.overall-grid(@index, @columns, @prefix) {
+
+    .grid-loop(@index) when (@index > 0) {
+        
+        @class-name: ~"@{index}of@{columns}";
+
+        // Start Second Loop
+        .grid-sub-loop(@index, @columns, @prefix) when (@index > 2) {
+
+            @output: (100% * (@index / @columns));
+
+            .loop-check(@output) when not (@output = 100%) and not (@output = 75%) and not (@output = 50%) and not (@output = 25%) and not (@output = 33.33333333333333%) and not (@output = 66.66666666666666%) {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    width: (100% * (@index / @columns));
+                }
+            }
+
+            .loop-check(@output) when (@output = 75%) {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-three-quarters);
+                }
+
+            }
+
+            .loop-check(@output) when (@output = 25%) {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-quarter);
+                }
+
+            }
+
+            .loop-check(@output) when (@output = 66.66666666666666%) {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-two-thirds);
+                }
+
+            }
+            .loop-check(@output) when (@output = 33.33333333333333%) {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-third);
+                }
+
+            }
+            
+            // Make all into just "loop-check" and call once.
+            .loop-check(@output);
+
+            .grid-sub-loop(@index - 1, @columns - 1, @prefix);
+        }
+
+        .grid-sub-loop(0) {}
+        .grid-sub-loop(@index, @columns, @prefix);
+        // End Second Loop
+
+        // next iteration
+        .grid-loop(@index - 1);
+
+    }
+
+    // end the loop when index is 0
+    .grid-loop(0) {}
+    .grid-loop(@index);
+
+}
+
+// Call all of the different grid options
+
+// Destop
+.overall-grid(@desktop-total-cols, @desktop-total-cols, @desktop-prefix);
+// Tablet
+.overall-grid(@tablet-total-cols, @tablet-total-cols, @tablet-prefix);
+// Mobile
+.overall-grid(@mobile-total-cols, @mobile-total-cols, @mobile-prefix);
+
