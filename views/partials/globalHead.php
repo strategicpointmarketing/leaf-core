@@ -7,7 +7,7 @@
 	
 	<!-- Styles -->
 	<!--[if lt IE 9]><link href="/resources/c/css/global-fixed.css" rel="stylesheet"><![endif]-->
-	<!--[if gt IE 8]><!--><link href="/resources/c/css/global.css" rel="stylesheet"><!--<![endif]-->
+	<!--[if gt IE 8]><!--><link href="/templates/leaf-base/resources/c/css/global.css" rel="stylesheet"><!--<![endif]-->
 	<!-- End Styles -->
 
 </head>
