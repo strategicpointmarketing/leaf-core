@@ -6,10 +6,11 @@
 @mq-desktop-min: (1em * (@mq-desktop-width / 16));
 @mq-desktop-max: (1em * ((@mq-widescreen-width - 1) / 16));
 @mq-widescreen-min: (1em * (@mq-widescreen-width / 16));
+@base-path-less: ~"/templates/leaf-base/resources/less/";
 
 // Importing Required Files
 @import 'config.less';
-@import '_mixins/mixins.less';
+@import '@{base-path-less}_mixins/mixins.less';
 
 // Responsive Breakpoints
 
@@ -27,6 +28,8 @@
 
 // Tablet Only
 @media only screen and (min-width: @mq-tablet-min) and (max-width: @mq-tablet-max) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+	
 	@import '_theme/_site/tablet-only.less';
 }
 
@@ -43,6 +46,8 @@
 
 // // Desktop
 @media only screen and (min-width: @mq-desktop-min) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+
 	@import '_theme/_site/desktop.less';
 // 	@import "less/themes/client/partials/_desktop.less";
 }
