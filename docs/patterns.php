@@ -10,7 +10,8 @@
 				Side Navigation Goes Here
 			</div>
 			<div class="gd-columns gt-columns gd-three-quarters gt-three-quarters">
-				
+				<h2 class="primary-heading paragon-text">Type</h2>
+
 				<!-- Typographic Scale -->
 				<div>
 					<p class="canon-text">Canon Text</p>
@@ -23,16 +24,17 @@
 				<!-- End Typographic Scale -->
 
 				<!-- Embeded Fonts -->
+				<h3 class="secondary-heading primer-text">Embeded Fonts</h3>
 				<!-- End Fonts -->
 
-				<!-- Body Font -->
+				<!-- Body Text -->
+				<h3 class="secondary-heading primer-text">Body Text</h3>
 				<p>Following Dumbledore's death, Voldemort continues to gain support and increase his power. When Harry turns seventeen, the protection he has at his aunt and uncle's house will be broken. Before that can happen, at Mad Eye Moody's suggestion, Harry flees to the Burrow with his friends, many of whom use Polyjuice Potion to impersonate him so as to confuse any Death Eaters that may attack.</p>
-				<!-- End Body Font -->
+				<!-- End Body Text -->
 
 				<!-- Lists -->
+				<h2 class="primary-heading paragon-text">Lists</h2>
 				<div>
-					<h2 class="primary-heading">Lists</h2>
-
 					<!-- Ordered Lists -->
 					<h3 class="secondary-heading primer-text">Ordered List</h3>
 					<ol>

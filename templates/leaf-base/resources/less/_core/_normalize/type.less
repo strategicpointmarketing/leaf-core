@@ -82,9 +82,11 @@ ul {
     li {
         ul,
         ol {
+            @10px: 1em * (10 / @base-text-size);
 
             // Mixins
-            .margin-vertical(0.5);
+            margin-top: @10px;
+            margin-bottom: @10px;
         }
     }
     dd {

@@ -24,6 +24,9 @@ Style Guide 0.1.0
 @tablet-margin: 			32;
 @mobile-margin: 			24;
 
+// Vertical Rhythm
+@base-vertical:				20;
+
 // Grid Class Prefix
 @desktop-prefix: 			~"gd";
 @tablet-prefix: 			~"gt";
@@ -50,8 +53,8 @@ Style Guide 0.1.0
 @white: 					#fff;
 @black: 					#000;
 @grey: 						#999;
-@light-grey: 				lighten(@grey, 15%);
-@dark-grey: 				darken(@grey, 15%);
+@light-grey: 				lighten(@grey, 25%);
+@dark-grey: 				darken(@grey, 25%);
 @blue: 						#3399FF;
 @light-blue: 				lighten(@blue, 15%);
 @dark-blue: 				darken(@blue, 15%);
@@ -106,3 +109,24 @@ Style Guide 0.1.0
 @sprite-grid:				50px;
 
 @base-path-images: ~"/templates/leaf-base/resources/images/";
+
+// Horizontal Margins
+// 
+// Take the base grid margin, divide it (if necessary), then divide 
+// the result by the `body`'s base text size. Convert to ems.
+
+@full-side: 1em * ((@base-margin / 2) / @base-text-size);
+@half-side: 1em * ((@base-margin / 4) / @base-text-size);
+@quarter-side: 1em * ((@base-margin / 8) / @base-text-size);
+@double-side: 1em * (@base-margin / @base-text-size);
+
+// Vertical Margins
+// 
+// Take the base vertical unit, divide it (if necessary), then divide 
+// the result by the `body`'s base text size. Convert to ems.
+
+@full-vertical: 1em * (@base-vertical / @base-text-size);
+@half-vertical: 1em * ((@base-vertical / 2) / @base-text-size);
+@quarter-vertical: 1em * ((@base-vertical / 4) / @base-text-size);
+@eighth-vertical: 1em * ((@base-vertical / 8) / @base-text-size);
+@double-vertical: 1em * ((@base-vertical * 2) / @base-text-size);
