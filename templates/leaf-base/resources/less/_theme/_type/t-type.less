@@ -49,8 +49,13 @@ Markup Examples:
 
 Headings
 
+Markup Example:
+<h1 class="primary-heading">This is a Primary Heading</h1>
+
 Description:
-Type defined in config is being applied.
+Headings within a wysiwyg can have some default size
+styling applied since it will be client and copywriter
+manageable.
 
 */
 
@@ -69,3 +74,72 @@ Type defined in config is being applied.
 .tertiary-heading {
 	color: @tertiary-heading-color;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: @full-vertical;
+}
+
+.wysiwyg h1 {
+	.canon-text;
+}
+.wysiwyg h2 {
+	.paragon-text;
+}
+.wysiwyg h3 {
+	.primer-text;
+}
+.wysiwyg h4 {
+	.normal-text;
+}
+
+/*
+
+Ordered List
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg ol {}
+.ordered-list {}
+
+*/
+
+
+
+/*
+
+Unordered List
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg ul {}
+.unordered-list {}
+
+*/
+
+
+
+/*
+
+Blockquotes
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg blockquote {}
+.blockquote {}
+
+*/
+
+
+
+
