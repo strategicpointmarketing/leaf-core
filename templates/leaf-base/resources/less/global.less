@@ -44,15 +44,19 @@
 }
 
 // Tablet
-// @media only screen and (min-width: @mq-tablet-min) {
-// 	// @import "less/core/partials/_tablet.less";
-// 	// @import "less/themes/client/partials/_tablet.less";
-// }
+@media only screen and (min-width: @mq-tablet-min) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+
+	// @import "less/core/partials/_tablet.less";
+	@import "@{base-path-less}_theme/_site/tablet.less";
+}
 
 // Desktop Only
-// @media only screen and (min-width: @mq-desktop-min) and (max-width: @mq-desktop-max) {
-// 	@import "_theme/_site/desktop-only.less";
-// }
+@media only screen and (min-width: @mq-desktop-min) and (max-width: @mq-desktop-max) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+	
+	@import "@{base-path-less}_theme/_site/desktop-only.less";
+}
 
 // // Desktop
 @media only screen and (min-width: @mq-desktop-min) {
