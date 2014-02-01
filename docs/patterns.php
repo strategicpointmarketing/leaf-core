@@ -7,10 +7,14 @@
 	<div class="wrapper">	
 		<div class="gd-row gt-row">
 			<div class="gd-columns gt-columns gd-quarter gt-quarter">
-				Side Navigation Goes Here
+				<ul class="unstyled">
+					<li class="js-scroll-btn" data-scroll="type">Type</li>
+					<li class="js-scroll-btn" data-scroll="lists">Lists</li>
+					<li><a class="js-scroll-btn" href="somethingelse">Something Else</a></li>
+				</ul>
 			</div>
 			<div class="gd-columns gt-columns gd-three-quarters gt-three-quarters">
-				<h2 class="primary-heading paragon-text">Type</h2>
+				<h2 data-scroll="type" class="js-scroll-dest primary-heading paragon-text">Type</h2>
 
 				<!-- Typographic Scale -->
 				<div>
@@ -33,7 +37,7 @@
 				<!-- End Body Text -->
 
 				<!-- Lists -->
-				<h2 class="primary-heading paragon-text">Lists</h2>
+				<h2 data-scroll="lists" class="js-scroll-dest primary-heading paragon-text">Lists</h2>
 				<div>
 					<!-- Ordered Lists -->
 					<h3 class="secondary-heading primer-text">Ordered List</h3>
@@ -67,5 +71,10 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Loading Scripts -->
+	<?php include('../views/partials/scripts.inc.php'); ?>
+	<!-- End Loading Scripts -->
+
 </body>
 </html>

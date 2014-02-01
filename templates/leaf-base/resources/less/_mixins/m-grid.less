@@ -1,20 +1,19 @@
 // Clearfix Mixin
 .clearfix() {
-	.lte7 & {
-		zoom:			1;
-	}
-	&:before,
-	&:after {
-		content:		"\0020";
-		height:			0;
-		display:		block;
-		overflow:		hidden;
-	}
-	&:after {
-		clear:			both;
-	}
+    .lte7 & {
+        zoom:           1;
+    }
+    &:before,
+    &:after {
+        content:        "\0020";
+        height:         0;
+        display:        block;
+        overflow:       hidden;
+    }
+    &:after {
+        clear:          both;
+    }
 }
-
 .row(@mar: @base-margin) {
 	
 	// Variables
