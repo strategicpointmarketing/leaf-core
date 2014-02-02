@@ -24,31 +24,33 @@
 
 // Responsive Breakpoints
 
-// // Mobile Only
-// @media only screen and (max-width: @mq-mobile-max) {
-// 	@import "less/core/partials/_mobile-only.less";
-	// @import "_theme/_site/_mobile-only.less";
-// }
+// Mobile Only
+@media only screen and (max-width: @mq-mobile-max) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+
+	@import "@{base-path-less}_theme/_site/mobile-only.less";
+}
 
 // // Mobile
-// @media only screen and (min-width: @mq-mobile-min) {
-// 	@import "less/core/partials/_mobile.less";
-// 	@import "less/themes/client/partials/_mobile.less";
-// }
+@media only screen and (min-width: @mq-mobile-min) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+
+	@import "@{base-path-less}_theme/_site/mobile.less";
+}
 
 // Tablet Only
 @media only screen and (min-width: @mq-tablet-min) and (max-width: @mq-tablet-max) {
 	@base-path-less: ~"/templates/leaf-base/resources/less/";
 	
-	@import '_theme/_site/tablet-only.less';
+	@import "@{base-path-less}_theme/_site/tablet-only.less";
 }
 
 // Tablet
 @media only screen and (min-width: @mq-tablet-min) {
 	@base-path-less: ~"/templates/leaf-base/resources/less/";
 
-	// @import "less/core/partials/_tablet.less";
 	@import "@{base-path-less}_theme/_site/tablet.less";
+	@import "@{base-path-less}_theme/_site/tablet-only.less";
 }
 
 // Desktop Only
@@ -58,15 +60,16 @@
 	@import "@{base-path-less}_theme/_site/desktop-only.less";
 }
 
-// // Desktop
+// Desktop
 @media only screen and (min-width: @mq-desktop-min) {
 	@base-path-less: ~"/templates/leaf-base/resources/less/";
 
-	@import '_theme/_site/desktop.less';
-// 	@import "less/themes/client/partials/_desktop.less";
+	@import "@{base-path-less}_theme/_site/desktop.less";
 }
 
-// // Large Screen
-// @media only screen and (min-width: @mq-widescreen-min) {
-// 	@import "less/themes/client/partials/_widescreen.less";
-// }
+// Large Screen
+@media only screen and (min-width: @mq-widescreen-min) {
+	@base-path-less: ~"/templates/leaf-base/resources/less/";
+
+	@import "@{base-path-less}_theme/_site/widescreen.less";
+}
