@@ -10,46 +10,34 @@
 				<ul class="unstyled">
 					<li class="js-scroll-btn" data-scroll="type">Type</li>
 					<li class="js-scroll-btn" data-scroll="lists">Lists</li>
-					<li><a class="js-scroll-btn" href="somethingelse">Something Else</a></li>
+					<li><a class="js-scroll-btn" data-scroll="buttons">Buttons</a></li>
 				</ul>
 			</div>
 			<div class="gd-columns gt-columns gd-three-quarters gt-three-quarters">
 				<div class="gd-row gt-row">
-					<div class="gd-columns gt-columns gd-third gt-third">
-						<div class="gd-row gt-row gm-row media-grid">
-							<div class="object gd-columns gt-columns gm-columns gd-third gt-third gm-half">
-								<span class="swatch-1">
-									
-								</span>
+					<div class="gd-columns gt-columns gd-two-thirds gt-two-thirds">
+
+						<div class="group">
+							<h2 class="primary-heading paragon-text">Swatches</h2>
+							<div class="swatch-1 gd-columns gt-columns gm-columns gd-quarter gt-quarter gm-half align-center">
+								<span class="swatch-text">text</span>
 							</div>
-							<div class="object gd-columns gt-columns gm-columns gd-third gt-third gm-half">
-								<span class="swatch-2">
-									
-								</span>
+							<div class="swatch-2 gd-columns gt-columns gm-columns gd-quarter gt-quarter gm-half align-center">
+								<span class="swatch-text">text</span>
 							</div>
-							<div class="object gd-columns gt-columns gm-columns gd-third gt-third gm-half">
-								<span class="swatch-3">
-									
-								</span>
+							<div class="swatch-3 gd-columns gt-columns gm-columns gd-quarter gt-quarter gm-half align-center">
+								<span class="swatch-text">text</span>
 							</div>
-							<div class="object gd-columns gt-columns gm-columns gd-third gt-third gm-half">
-								<span class="swatch-4">
-									
-								</span>
+							<div class="swatch-4 gd-columns gt-columns gm-columns gd-quarter gt-quarter gm-half align-center">
+								<span class="swatch-text">text</span>
 							</div>
-							<div class="object gd-columns gt-columns gm-columns gd-third gt-third gm-half">
-								<span class="swatch-5">
-									
-								</span>
+							<div class="swatch-5 gd-columns gt-columns gm-columns gd-quarter gt-quarter gm-half align-center">
+								<span class="swatch-text">text</span>
 							</div>
-							<div class="object gd-columns gt-columns gm-columns gd-third gt-third gm-half">
-								<span class="swatch-6">
-									
-								</span>
+							<div class="swatch-6 gd-columns gt-columns gm-columns gd-quarter gt-quarter gm-half align-center">
+								<span class="swatch-text">text</span>
 							</div>
 						</div>
-					</div>
-					<div class="gd-columns gt-columns gd-two-thirds gt-two-thirds">
 
 						<h2 data-scroll="type" class="js-scroll-dest primary-heading paragon-text">Type</h2>
 
@@ -107,9 +95,22 @@
 
 						<!-- Buttons -->
 						<h2 data-scroll="buttons" class="js-scroll-dest primary-heading paragon-text">Buttons</h2>
-						<div>
-							<a href="#" class="button primary large">Primary</a>
-						</div>
+						
+						<h3 class="secondary-heading primer-text">Tiny Button</h3>
+						<a href="#" class="button primary tiny">Primary</a>
+						<a href="#" class="button tiny">Buton</a>
+
+						<h3 class="secondary-heading primer-text">Small Button</h3>
+						<a href="#" class="button primary small">Primary</a>
+						<a href="#" class="button small">Button</a>
+
+						<h3 class="secondary-heading primer-text">Normal Button</h3>
+						<a href="#" class="button primary">Primary</a>
+						<a href="#" class="button">Button</a>
+
+						<h3 class="secondary-heading primer-text">Large Button</h3>
+						<a href="#" class="button primary large">Primary</a>
+						<a href="#" class="button large">Button</a>
 						<!-- End Buttons -->
 
 					</div>
@@ -122,6 +123,28 @@
 	<!-- Loading Scripts -->
 	<?php include('../views/partials/scripts.inc.php'); ?>
 	<!-- End Loading Scripts -->
+	<script>
+	
+	$(document).ready(function() {
+		var swatchText = $(".swatch-text");
+
+		swatchText.each(function() {
+			var color = $(this).parent('div').css('background-color');
+
+			function rgb2hex(rgb) {
+			    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			    function hex(x) {
+			        return ("0" + parseInt(x).toString(16)).slice(-2);
+			    }
+			    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+			}
+
+			$(this).text(rgb2hex(color));
+
+		});
+	});
+
+	</script>
 
 </body>
 </html>

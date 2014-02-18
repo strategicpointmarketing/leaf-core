@@ -839,8 +839,7 @@ body:hover .simple-reveal-container.is-current button {
   float: none;
 }
 .wrapper {
-  width: 80%;
-  max-width: 63em;
+  width: 92%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1215,6 +1214,12 @@ Example Markup:
 }
 .gd-1of12 {
   width: 8.333333333333332%;
+}
+.wrapper {
+  width: 80%;
+  max-width: 63em;
+  margin-left: auto;
+  margin-right: auto;
 }
 html,
 body {
