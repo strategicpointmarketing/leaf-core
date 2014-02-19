@@ -1,31 +1,46 @@
 $(document).ready(function() {
     
-    function windowScroll() {
+    windowScroll = {
+        config: {
+            targetElems: $(".js-scroll-btn"),
+            speed: 350
+        },
 
-       var itemToClick = $(".js-scroll-btn");
+        init: function() {
+          var config = this.config;
 
-       if ( itemToClick.length ) {
+            // Check if elements exist
+            if (config.targetElems.length) {
+                this.bindButtons( config );
+            }
 
-           itemToClick.on('click', function(e) {
+        },
+        bindButtons: function( config ) {
+            var buttons = config.targetElems;
 
-               var itemClickedVal = $(this).attr('data-scroll'),
-                   scrollDestination = $(".js-scroll-dest[data-scroll='" + itemClickedVal + "']"),
-                   itemOffset = scrollDestination.offset();
+            $(document.body).on("click", ".js-scroll-btn", function( e ) {
 
-                console.log("this thing" + itemClickedVal + "was clicked");
+                var data = $(this).data('scroll'),
+                    destination = $(".js-scroll-dest[data-scroll='" + data + "']"),
+                    offset = destination.offset();
 
-               $('html, document').animate({
-                   scrollTop: itemOffset.top - 20
-               }, 350);
+                // Prevent Click
+                e.preventDefault();
 
-               e.preventDefault();
+                // Animate
+                windowScroll.animateScroll( offset );
 
-           });
+            });
+        },
+        animateScroll: function( offset ) {
 
-       }
+            $('html, document').animate({
+                scrollTop: offset.top - 20
+            }, this.config.speed);
 
-    }
+        }
+    };
 
-    windowScroll();
+    windowScroll.init();
 
 });
