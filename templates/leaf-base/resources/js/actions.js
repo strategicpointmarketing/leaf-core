@@ -41,6 +41,7 @@ $(document).ready(function() {
         }
     };
 
+    // Call the script
     windowScroll.init();
 
 });
