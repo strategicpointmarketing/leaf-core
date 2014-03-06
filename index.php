@@ -16,7 +16,7 @@
 		
 		<div class="wrapper">
 			
-			<!-- Main Content Goes Here, probably need some logic to pull in this template or others like into different views -->
+			Something
 
 		</div>
 
