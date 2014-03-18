@@ -7,19 +7,17 @@
 	<header>
 		
 		<!-- Main Navigation -->
-		<?php include('viws/partials/mainNavigation.php'); ?>
+		<?php include('views/partials/mainNavigation.php'); ?>
 		<!-- End Main Navigation -->
 
 	</header>
 
 	<main role="main">
-		
 		<div class="wrapper">
 			
-			Something
+			<h1 class="primary-heading paragon-text">Home</h1>
 
 		</div>
-
 	</main>
 
 	<footer>

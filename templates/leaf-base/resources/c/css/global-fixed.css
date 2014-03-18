@@ -838,6 +838,26 @@ body:hover .simple-reveal-container.is-current button {
 .media-grid .object.gd-columns {
   float: none;
 }
+.list--x li {
+  display: inline-block;
+}
+.main-nav {
+  background-color: #80bfff;
+}
+.main-nav--list {
+  margin-top: 0;
+}
+.main-nav--list a {
+  display: block;
+  padding: 0.625em 0.9375em;
+  color: #ffffff;
+  text-decoration: none;
+}
+.main-nav--list a:hover,
+.main-nav--list a:focus,
+.main-nav--list a.is-current {
+  background-color: #4da6ff;
+}
 .wrapper {
   width: 92%;
   margin-left: auto;
@@ -1214,6 +1234,23 @@ Example Markup:
 }
 .gd-1of12 {
   width: 8.333333333333332%;
+}
+.main-nav {
+  background-color: #80bfff;
+}
+.main-nav--list {
+  margin-top: 0;
+}
+.main-nav--list a {
+  display: block;
+  padding: 0.625em 0.9375em;
+  color: #ffffff;
+  text-decoration: none;
+}
+.main-nav--list a:hover,
+.main-nav--list a:focus,
+.main-nav--list a.is-current {
+  background-color: #4da6ff;
 }
 .wrapper {
   width: 80%;

@@ -57,10 +57,12 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
     watch: {
-      files: ['**/*.less'],
-      tasks: ['less'],
-      options: {
-        spawn: true,
+      less: {
+        files: ['templates/leaf-base/resources/less/**/*.less'],
+        tasks: ['less'],
+        options: {
+          spawn: true,
+        }
       }
     },
     less: {
