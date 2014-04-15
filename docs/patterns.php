@@ -9,7 +9,7 @@
 			<div class="gd-columns gt-columns gd-quarter gt-quarter">
 				<ul class="unstyled">
 					<li class="js-scroll-btn" data-scroll="type">Type</li>
-					<li class="js-scroll-btn" data-scroll="lists">Lists</li>
+					<li class="js-scroll-btn" data-scroll-start="lists">Lists</li>
 					<li><a class="js-scroll-btn" data-scroll="buttons">Buttons</a></li>
 				</ul>
 			</div>
@@ -39,7 +39,7 @@
 							</div>
 						</div>
 
-						<h2 data-scroll="type" class="js-scroll-dest primary-heading paragon-text">Type</h2>
+						<h2 data-scroll="type" class="primary-heading paragon-text">Type</h2>
 
 						<!-- Typographic Scale -->
 						<div>
@@ -62,7 +62,7 @@
 						<!-- End Body Text -->
 
 						<!-- Lists -->
-						<h2 data-scroll="lists" class="js-scroll-dest primary-heading paragon-text">Lists</h2>
+						<h2 data-scroll-end="lists" class="primary-heading paragon-text">Lists</h2>
 						<div>
 							<!-- Ordered Lists -->
 							<h3 class="secondary-heading primer-text">Ordered List</h3>

@@ -21,15 +21,15 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
-      }
-    },
+    // uglify: {
+    //   my_target: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'src/js',
+    //       src: '**/*.js',
+    //     }]
+    //   }
+    // },
     jshint: {
       options: {
         curly: true,
