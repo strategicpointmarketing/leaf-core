@@ -1,18 +1,24 @@
-(function ( $, window, document, undefined ) {
+(function ( $, Client, document, undefined ) {
 
     "use strict";
 
-    window.windowScroll = {
+    Client.windowScroll = {
         
         config: {
-            targetElems: $(".js-scroll-btn"),
-            speed: 350,
-            offset: 20,
+            "targetElems": $(".js-scroll-btn"),
+            "speed": 350,
+            "offset": 20,
             "beforeScroll": null,
             "afterScroll": null
         },
 
-        init: function() {
+        init: function( config ) {
+            var self = this;
+
+            // Apply User Config
+            if ( typeof config == 'object' ) {
+                self.config = $.extend( {}, self.config, config );
+            }
 
             // Check if target elems exist
             if ( this.config.targetElems.length ) {
@@ -24,7 +30,7 @@
         },
 
         bindButtons: function() {
-            var context = this;
+            var self = this;
 
             // Bind The On Click Events
             this.config.targetElems.on('click', function( e ){
@@ -32,19 +38,21 @@
                     btnData = $this.data('scroll-start');
 
                 // Get The Target Elements Offset
-                var destination = context.getOffset.call(context, btnData );
+                var destination = self.getOffset.call(self, btnData );
 
-                if ( typeof context.config.beforeScroll == "function" ) {
-                    
+                if ( typeof self.config.beforeScroll === "function" ) {
+
                     // Fire Before Function
-                    context.config.beforeScroll();
+                    self.setupBeforeScroll().done(function(){
+                        
+                        // Animate The Scroll
+                        self.animateScroll( destination );
 
-                    // Animate The Scroll
-                    // context.animateScroll( destination );
+                    });
                 } else {
 
                     // Animate The Scroll
-                    context.animateScroll( destination );
+                    self.animateScroll( destination );
                 }
 
                 // Prevent Normal Click Event
@@ -55,14 +63,14 @@
         },
 
         getOffset: function( btnData ) {
-            var destination = $('[data-scroll-end="' + btnData + '"]');
+            var destination = $('#' + btnData + ', [data-scroll-end="' + btnData + '"]');
 
             // Return Top Offset Number
             return destination.offset().top;
         },
 
         animateScroll: function( dest ) {
-            var context = this;
+            var self = this;
 
             // Animate
             $('html,body').animate({
@@ -72,16 +80,26 @@
             }, this.config.speed)
                 .promise()
                     .done(function(){
-                        if( typeof context.config.afterScroll == "function" ) {
-                            context.config.afterScroll();
+                        if( typeof self.config.afterScroll == "function" ) {
+                            self.config.afterScroll();
                         }
                     });
         },
 
-        // Aditional Empty Functions
+        setupBeforeScroll: function() {
+            var self = this,
+                deferred = new $.Deferred();
+
+            self.config.beforeScroll( deferred );
+
+            return deferred.promise();
+
+        },
+
+        // Usable Empty Functions
         beforeScroll: function() {},
         afterScroll: function() {}
 
     };
 
-}( jQuery, window, document, {} ));
+}( jQuery, window.Client = window.Client || {}, document ));
