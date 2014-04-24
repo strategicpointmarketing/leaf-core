@@ -6,7 +6,7 @@
         config: {
             targetElems: $('.js-tabs'),
             currentClass: 'is-current',
-            dynoThumbs: true
+            dynoThumbs: false
         },
         
         vars: {
@@ -14,6 +14,11 @@
         },
 
         init: function() {
+
+            // Apply User Config
+            if ( typeof config == 'object' ) {
+                self.config = $.extend( {}, self.config, config );
+            }
 
             // If Dynamic Thumbnails Is True
             if ( this.config.dynoThumbs === true ) {

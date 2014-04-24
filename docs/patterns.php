@@ -8,9 +8,10 @@
 		<div class="gd-row gt-row">
 			<div class="gd-columns gt-columns gd-quarter gt-quarter">
 				<ul class="unstyled">
-					<li class="js-scroll-btn" data-scroll="type">Type</li>
-					<li class="js-scroll-btn" data-scroll-start="lists">Lists</li>
-					<li><a class="js-scroll-btn" data-scroll="buttons">Buttons</a></li>
+					<li class="js-scroll-btn" data-scroll-start="type">Type</li>
+					<li><a data-scroll-start="lists" href="#lists">Lists</a></li>
+					<li><a data-scroll-start="lists-ordered" href="#buttons">Lists Ordered</a></li>
+					<li><a href="#buttons">Buttons</a></li>
 				</ul>
 			</div>
 			<div class="gd-columns gt-columns gd-three-quarters gt-three-quarters">
@@ -39,7 +40,7 @@
 							</div>
 						</div>
 
-						<h2 data-scroll="type" class="primary-heading paragon-text">Type</h2>
+						<h2 id="type" class="primary-heading paragon-text">Type</h2>
 
 						<!-- Typographic Scale -->
 						<div>
@@ -62,10 +63,10 @@
 						<!-- End Body Text -->
 
 						<!-- Lists -->
-						<h2 data-scroll-end="lists" class="primary-heading paragon-text">Lists</h2>
+						<h2 id="lists" class="primary-heading paragon-text">Lists</h2>
 						<div>
 							<!-- Ordered Lists -->
-							<h3 class="secondary-heading primer-text">Ordered List</h3>
+							<h3 id="lists-ordered" class="secondary-heading primer-text">Ordered List</h3>
 							<ol>
 								<li>Plot introduction</li>
 								<li>Plot summary</li>
@@ -94,7 +95,7 @@
 						<!-- End Lists -->
 
 						<!-- Buttons -->
-						<h2 data-scroll="buttons" class="js-scroll-dest primary-heading paragon-text">Buttons</h2>
+						<h2 id="buttons" class="js-scroll-dest primary-heading paragon-text">Buttons</h2>
 						
 						<h3 class="secondary-heading primer-text">Tiny Button</h3>
 						<a href="#" class="button primary tiny">Primary</a>

@@ -8,8 +8,13 @@
             "targetElems": $(".js-scroll-btn"),
             "speed": 350,
             "offset": 20,
+            "easing": null,
             "beforeScroll": null,
             "afterScroll": null
+        },
+
+        vars: {
+            dataHashArray: []
         },
 
         init: function( config ) {
@@ -19,51 +24,76 @@
             if ( typeof config == 'object' ) {
                 self.config = $.extend( {}, self.config, config );
             }
-
-            // Check if target elems exist
-            if ( this.config.targetElems.length ) {
                 
-                // Bind the buttons
-                this.bindButtons();
-            }
+            // Bind the buttons
+            this.bindButtons();
 
         },
 
         bindButtons: function() {
-            var self = this;
+            var self = this,
+                dataScollElem = $('[data-scroll-start], [data-scroll-start][href^="#"]'),
+                hashElem = $('[href^="#"]').not('[data-scroll-start]');
 
-            // Bind The On Click Events
-            this.config.targetElems.on('click', function( e ){
-                var $this = $(this),
-                    btnData = $this.data('scroll-start');
+            // Data-scroll-start Attribute Takes Priority
+            if ( dataScollElem.length ) {
 
-                // Get The Target Elements Offset
-                var destination = self.getOffset.call(self, btnData );
+                dataScollElem.on('click', function( e ) {
+                    var $this = $(this),
+                        dataScrollData = $this.data('scroll-start');
 
-                if ( typeof self.config.beforeScroll === "function" ) {
+                    // Call Button Events Setup
+                    self.buttonEvents.call( self, $this, dataScrollData );
 
-                    // Fire Before Function
-                    self.setupBeforeScroll().done(function(){
-                        
-                        // Animate The Scroll
-                        self.animateScroll( destination );
+                    // Prevent Normal Click Event
+                    e.preventDefault();
+                });
 
-                    });
-                } else {
+            }
 
+            if ( hashElem.length ) {
+
+                hashElem.on('click', function( e ) {
+                    var $this = $(this),
+                        hashElemDataRaw = $this.attr('href'),
+                        hashElemDataRefined = hashElemDataRaw.substring(1);
+
+                    // Call Button Events Setup
+                    self.buttonEvents.call( self, $this, hashElemDataRefined );
+
+                    // Prevent Normal Click Event
+                    e.preventDefault();
+
+                });
+
+            }
+
+        },
+
+        buttonEvents: function( thisBtn, sourceData ) {
+            var self = this,
+                destination = this.getOffset.call(this, sourceData );
+
+
+            if ( typeof this.config.beforeScroll === "function" ) {
+
+                // Fire Before Function
+                this.setupBeforeScroll().done(function(){
+                    
                     // Animate The Scroll
                     self.animateScroll( destination );
-                }
 
-                // Prevent Normal Click Event
-                e.preventDefault();
+                });
+            } else {
 
-            });
+                // Animate The Scroll
+                this.animateScroll( destination );
+            }
 
         },
 
         getOffset: function( btnData ) {
-            var destination = $('#' + btnData + ', [data-scroll-end="' + btnData + '"]');
+            var destination = $('#' + btnData);
 
             // Return Top Offset Number
             return destination.offset().top;

@@ -881,8 +881,8 @@ Example Markup:
 
 */
 .gt-row {
-  margin-left: -1.125em;
-  margin-right: -1.125em;
+  margin-left: -1em;
+  margin-right: -1em;
 }
 .lte7 .gt-row {
   zoom: 1;
