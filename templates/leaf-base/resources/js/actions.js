@@ -4,24 +4,9 @@
 
     Client.defaultWindowScroll = {
 
-        config: {
-            beforeScroll: function( deferred ) {
-
-                var timeOut = setTimeout( function() {
-                    console.log('finished timeout');
-
-                    deferred.resolve();
-
-                }, 2000);
-
-            },
-            afterScroll: function() {
-                console.log('after it scrolled');
-            }
-        },
-
+        // Initialize Window Scroll Plugin
         init: function() {
-            Client.windowScroll.init( this.config );
+            Client.windowScroll.init();
         }
 
     };

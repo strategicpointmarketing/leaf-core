@@ -11,4 +11,8 @@
 	<!--[if gt IE 8]><!--><link href="/templates/leaf-base/resources/c/css/global.css" rel="stylesheet"><!--<![endif]-->
 	<!-- End Styles -->
 
+    <!-- Scripts -->
+    <script type="text/javascript" src="/templates/leaf-base/resources/js/modernizer.js"></script>
+    <!-- End Scripts -->
+
 </head>
