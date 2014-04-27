@@ -911,9 +911,9 @@ Example Code:
 </nav>
 
 */
-.js .main-nav .wrapper {
+.js .main-nav {
   position: relative;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 .js .scroll-nav {
   overflow: scroll;
