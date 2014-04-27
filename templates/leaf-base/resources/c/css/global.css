@@ -888,9 +888,6 @@ Name: Main Navigation List
 Description: Absolute baseline for main navigation.
 
 */
-.main-nav {
-  overflow: hidden;
-}
 .main-nav--list li {
   margin-left: 0.3125em;
   margin-right: 0.3125em;
@@ -914,9 +911,11 @@ Example Code:
 </nav>
 
 */
-.scroll-nav {
-  width: 1000em;
+.js .main-nav .wrapper {
   position: relative;
+  overflow-y: hidden;
+}
+.js .scroll-nav {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }

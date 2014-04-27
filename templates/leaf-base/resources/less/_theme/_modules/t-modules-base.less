@@ -24,7 +24,6 @@ Description: Absolute baseline for main navigation.
 // Main Navigation Customization
 .main-nav {
 	@5px: (1em * (5 / @base-text-size));
-	overflow: hidden;
 
 	&--list {
 		li {
@@ -54,10 +53,18 @@ Example Code:
 </nav>
 
 */
+.js {
 
-.scroll-nav {
-	width: 1000em;
-	position: relative;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
+	.main-nav {
+		.wrapper {
+			position: relative;
+			overflow-y: hidden;
+		}
+	}
+
+	.scroll-nav {
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+
 }
