@@ -1,23 +1,63 @@
+/*
+
+Name: Horizontal Navigation
+Description: Absolute baseline for horizontal navigation sets.
+
+*/
+
+[class*="nav--horizontal"],
+.nav--horizontal {
+	&:extend(.list--x all, .unstyled all);
+}
+
+/*
+
+Name: Main Navigation List
+Description: Absolute baseline for main navigation.
+
+*/
+
+.main-nav--list {
+	&:extend(.nav--horizontal all);
+}
+
+// Main Navigation Customization
 .main-nav {
-	background-color: @client-color-2;
+	@5px: (1em * (5 / @base-text-size));
+	overflow: hidden;
 
 	&--list {
-		margin-top: 0;
+		li {
+			margin-left: @5px;
+			margin-right: @5px;
 
-		a {
-			@10px: (1em * (10 / @base-text-size));
-			@15px: (1em * (15 / @base-text-size));
-			
-			display: block;
-			padding: @10px @15px;
-			color: @white;
-			text-decoration: none;
-
-			&:hover,
-			&:focus,
-			&.is-current {
-				background-color: darken(@client-color-2, 10%);
+			&:first-of-type {
+				margin-left: 0;
 			}
 		}
 	}
+}
+
+/*
+
+Name: Main Navigation
+
+Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+
+Example Code:
+<nav class="scroll-nav">
+	<ul>
+		<li>Home</li>
+		<li>About</li>
+		<li>Services</li>
+	</ul>
+</nav>
+
+*/
+
+.scroll-nav {
+	width: 1000em;
+	position: relative;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }

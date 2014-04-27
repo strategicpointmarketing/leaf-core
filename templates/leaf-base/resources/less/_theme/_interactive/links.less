@@ -1,0 +1,29 @@
+
+/*
+
+Name: Naked Links
+Description: Remove browser defaults from links.
+Purpose: To be used extended, though it can be used in markup.
+
+*/
+
+.link--naked {
+    text-decoration: none;
+    color: @primary-link-color;
+
+    &:hover,
+    &:focus {
+        color: @primary-link-hover;
+    }
+}
+
+/*
+
+Name: Standard Links
+Description: Default Site Links, inherited from link--naked
+
+*/
+
+a {
+    &:extend(.link--naked all);
+}

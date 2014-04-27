@@ -274,7 +274,16 @@ ul {
 }
 menu.unstyled,
 ol.unstyled,
-ul.unstyled {
+ul.unstyled,
+menu[class*="nav--horizontal"],
+ol[class*="nav--horizontal"],
+ul[class*="nav--horizontal"],
+menu.nav--horizontal,
+ol.nav--horizontal,
+ul.nav--horizontal,
+menu.main-nav--list,
+ol.main-nav--list,
+ul.main-nav--list {
   padding-left: 0;
   list-style: none outside none;
 }
@@ -838,25 +847,79 @@ body:hover .simple-reveal-container.is-current button {
 .media-grid .object.gd-columns {
   float: none;
 }
-.list--x li {
-  display: inline-block;
-}
+/*
+
+Name: Horizontal Navigation
+Description: Absolute baseline for horizontal navigation sets.
+
+*/
+/*
+
+Name: Main Navigation List
+Description: Absolute baseline for main navigation.
+
+*/
 .main-nav {
-  background-color: #80bfff;
+  overflow: hidden;
 }
-.main-nav--list {
-  margin-top: 0;
+.main-nav--list li {
+  margin-left: 0.3125em;
+  margin-right: 0.3125em;
 }
-.main-nav--list a {
-  display: block;
-  padding: 0.625em 0.9375em;
-  color: #ffffff;
+.main-nav--list li:first-of-type {
+  margin-left: 0;
+}
+/*
+
+Name: Main Navigation
+
+Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+
+Example Code:
+<nav class="scroll-nav">
+	<ul>
+		<li>Home</li>
+		<li>About</li>
+		<li>Services</li>
+	</ul>
+</nav>
+
+*/
+.scroll-nav {
+  width: 1000em;
+  position: relative;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+/*
+
+Name: Naked Links
+Description: Remove browser defaults from links.
+Purpose: To be used extended, though it can be used in markup.
+
+*/
+.link--naked,
+a {
   text-decoration: none;
+  color: #3399ff;
 }
-.main-nav--list a:hover,
-.main-nav--list a:focus,
-.main-nav--list a.is-current {
-  background-color: #4da6ff;
+.link--naked:hover,
+.link--naked:focus,
+a:hover,
+a:focus {
+  color: #80bfff;
+}
+/*
+
+Name: Standard Links
+Description: Default Site Links, inherited from link--naked
+
+*/
+.list--x li,
+[class*="nav--horizontal"] li,
+.nav--horizontal li,
+.main-nav--list li {
+  display: inline-block;
 }
 .wrapper {
   width: 92%;
@@ -1235,23 +1298,11 @@ Example Markup:
 .gd-1of12 {
   width: 8.333333333333332%;
 }
-.main-nav {
-  background-color: #80bfff;
-}
-.main-nav--list {
-  margin-top: 0;
-}
-.main-nav--list a {
-  display: block;
-  padding: 0.625em 0.9375em;
-  color: #ffffff;
-  text-decoration: none;
-}
-.main-nav--list a:hover,
-.main-nav--list a:focus,
-.main-nav--list a.is-current {
-  background-color: #4da6ff;
-}
+/*
+
+Main Navigation Customization
+
+*/
 .wrapper {
   width: 80%;
   max-width: 63em;
