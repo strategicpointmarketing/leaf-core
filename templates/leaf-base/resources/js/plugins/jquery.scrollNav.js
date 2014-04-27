@@ -20,7 +20,7 @@
                 console.log($(this).text() + ' : ' + $(this).outerWidth( true ));
             });
 
-            this.vars.targetElems.css('width', totalSize + (totalSize / 2));
+            this.vars.targetElems.css('width', totalSize);
 
         }
 
