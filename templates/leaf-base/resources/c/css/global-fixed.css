@@ -888,7 +888,7 @@ Example Code:
 .scroll-nav {
   width: 1000em;
   position: relative;
-  overflow: scroll;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 /*
