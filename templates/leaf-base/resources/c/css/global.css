@@ -913,10 +913,10 @@ Example Code:
 */
 .js .main-nav .wrapper {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .js .scroll-nav {
-  overflow-x: scroll;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 /*
