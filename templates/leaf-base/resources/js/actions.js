@@ -2,14 +2,14 @@
 
     "use strict";
 
-    Client.defaultWindowScroll = {
+    // Client.defaultWindowScroll = {
 
-        // Initialize Window Scroll Plugin
-        init: function() {
-            Client.windowScroll.init();
-        }
+    //     // Initialize Window Scroll Plugin
+    //     init: function() {
+    //         Client.windowScroll.init();
+    //     }
 
-    };
+    // };
 
     Client.mainNavigationScroll = {
         
