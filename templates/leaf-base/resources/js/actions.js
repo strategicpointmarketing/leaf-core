@@ -47,7 +47,7 @@
     };
 
     // Call the script
-    Client.defaultWindowScroll.init();
+    // Client.defaultWindowScroll.init();
     Client.mainNavigationScroll.init();
 
 }( jQuery, window.Client = window.Client || {}, document ));
