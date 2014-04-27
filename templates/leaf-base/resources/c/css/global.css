@@ -914,6 +914,7 @@ Example Code:
 .js .main-nav {
   position: relative;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 .js .scroll-nav {
   overflow: scroll;
