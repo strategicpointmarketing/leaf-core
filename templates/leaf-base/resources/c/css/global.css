@@ -889,11 +889,11 @@ Description: Absolute baseline for main navigation.
 
 */
 .main-nav--list li {
-  margin-left: 0.3125em;
-  margin-right: 0.3125em;
+  padding-left: 0.3125em;
+  padding-right: 0.3125em;
 }
 .main-nav--list li:first-of-type {
-  margin-left: 0;
+  padding-left: 0;
 }
 /*
 
@@ -914,6 +914,27 @@ Example Code:
 .js .main-nav {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+.js .scroll-nav {
+  margin-bottom: 0.3125em;
+  /* Mixins */
+}
+.lte7 .js .scroll-nav {
+  zoom: 1;
+}
+.js .scroll-nav:before,
+.js .scroll-nav:after {
+  content: "\0020";
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+.js .scroll-nav:after {
+  clear: both;
+}
+.js .scroll-nav li {
+  display: block;
+  float: left;
 }
 /*
 
