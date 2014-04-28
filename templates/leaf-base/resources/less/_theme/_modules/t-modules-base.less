@@ -39,13 +39,13 @@ Description: Absolute baseline for main navigation.
 
 /*
 
-Name: Main Navigation
+Name: Main Navigation - Thumb Scrolling
 
 Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
 
 Example Code:
-<nav class="scroll-nav">
-	<ul>
+<nav>
+	<ul class="scroll-nav">
 		<li>Home</li>
 		<li>About</li>
 		<li>Services</li>
@@ -53,6 +53,7 @@ Example Code:
 </nav>
 
 */
+
 .js {
 
 	.main-nav {
@@ -60,7 +61,7 @@ Example Code:
 		-webkit-overflow-scrolling: touch;
 	}
 
-	.scroll-nav {
+	.thumb-scroll--nav {
 		// Variables
 		@5px: (1em * (5 / @base-text-size));
 		
@@ -77,3 +78,20 @@ Example Code:
 	}
 
 }
+
+/*
+
+Name: Main Navigation - Thumb Scrolling
+
+Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+
+Example Code:
+<nav>
+	<ul class="scroll-nav">
+		<li>Home</li>
+		<li>About</li>
+		<li>Services</li>
+	</ul>
+</nav>
+
+*/

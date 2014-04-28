@@ -11,12 +11,12 @@
 
     };
 
-    Client.mainNavigationScroll = {
+    Client.mainNavigation = {
         
         // Internal Varibales
         vars: {
-            targetElems: $('.scroll-nav'),
-            pluginSrc: '/templates/leaf-base/resources/js/plugins/jquery.scrollNav.js'
+            targetElems: $('.thumb-scroll--nav'),
+            pluginSrc: '/templates/leaf-base/resources/js/plugins/jquery.thumbScrollNav.js'
         },
 
         init: function() {
@@ -40,7 +40,7 @@
                 url: self.vars.pluginSrc,
             })
             .done(function() {
-                Client.overflowScroll.init( self.vars.targetElems );
+                Client.thumbScrollNav.init( self.vars.targetElems );
             });
         }
 
@@ -48,6 +48,6 @@
 
     // Call the script
     // Client.defaultWindowScroll.init();
-    Client.mainNavigationScroll.init();
+    Client.mainNavigation.init();
 
 }( jQuery, window.Client = window.Client || {}, document ));

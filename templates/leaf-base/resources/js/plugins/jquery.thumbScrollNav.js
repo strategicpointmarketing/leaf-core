@@ -2,7 +2,7 @@
 
     "use strict";
 
-    Client.overflowScroll = {
+    Client.thumbScrollNav = {
 
         vars: {
             targetElems: null

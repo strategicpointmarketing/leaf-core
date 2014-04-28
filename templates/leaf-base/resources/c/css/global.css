@@ -902,8 +902,8 @@ Name: Main Navigation
 Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
 
 Example Code:
-<nav class="scroll-nav">
-	<ul>
+<nav>
+	<ul class="scroll-nav">
 		<li>Home</li>
 		<li>About</li>
 		<li>Services</li>
@@ -915,24 +915,24 @@ Example Code:
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.js .scroll-nav {
+.js .thumb-scroll--nav {
   margin-bottom: 0.3125em;
   /* Mixins */
 }
-.lte7 .js .scroll-nav {
+.lte7 .js .thumb-scroll--nav {
   zoom: 1;
 }
-.js .scroll-nav:before,
-.js .scroll-nav:after {
+.js .thumb-scroll--nav:before,
+.js .thumb-scroll--nav:after {
   content: "\0020";
   height: 0;
   display: block;
   overflow: hidden;
 }
-.js .scroll-nav:after {
+.js .thumb-scroll--nav:after {
   clear: both;
 }
-.js .scroll-nav li {
+.js .thumb-scroll--nav li {
   display: block;
   float: left;
 }
