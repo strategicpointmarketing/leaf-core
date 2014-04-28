@@ -100,6 +100,12 @@
 }
 
 // Padding and Margin Mixins
+.spacing-single(@type, @value, @text-size: @base-text-size) {
+    @spacing-value: (1em * (@value / @text-size));
+
+    @{type}: @spacing-value;
+}
+
 .spacing-vertical(@type, @value, @text-size: @base-text-size) {
     @spacing-value: (1em * (@value / @text-size));
 

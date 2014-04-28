@@ -15,7 +15,7 @@
         
         // Internal Varibales
         vars: {
-            targetElems: $('.thumb-scroll--nav'),
+            targetElems: $('.thumb-scroll__nav'),
             pluginSrc: '/templates/leaf-base/resources/js/plugins/jquery.thumbScrollNav.js'
         },
 

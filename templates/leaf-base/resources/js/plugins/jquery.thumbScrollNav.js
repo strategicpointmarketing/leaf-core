@@ -11,11 +11,11 @@
         init: function( elem ) {
             
             // Set the target elem
-            this.vars.targetElems = elem;
+            this.vars.targetElems = elem.find('.main-nav__list');
 
             var totalSize = 0;
 
-            elem.find('li').each( function( index, el ) {
+            this.vars.targetElems.find('li').each( function( index, el ) {
                 totalSize = totalSize + $(this).outerWidth( true );
                 console.log($(this).text() + ' : ' + $(this).outerWidth( true ));
             });

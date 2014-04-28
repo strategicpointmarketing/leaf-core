@@ -1,7 +1,9 @@
 /*
 
-Name: Horizontal Navigation
-Description: Absolute baseline for horizontal navigation sets.
+Horizontal Navigation
+
+Description:
+Absolute baseline for horizontal navigation sets.
 
 */
 
@@ -12,12 +14,14 @@ Description: Absolute baseline for horizontal navigation sets.
 
 /*
 
-Name: Main Navigation List
-Description: Absolute baseline for main navigation.
+Main Navigation List
+
+Description:
+Absolute baseline for main navigation.
 
 */
 
-.main-nav--list {
+.main-nav__list {
 	&:extend(.nav--horizontal all);
 }
 
@@ -25,7 +29,7 @@ Description: Absolute baseline for main navigation.
 .main-nav {
 	@5px: (1em * (5 / @base-text-size));
 
-	&--list {
+	&__list {
 		li {
 			padding-left: @5px;
 			padding-right: @5px;
@@ -39,13 +43,14 @@ Description: Absolute baseline for main navigation.
 
 /*
 
-Name: Main Navigation - Thumb Scrolling
+Main Navigation - Thumb Scrolling
 
-Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+Description:
+Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
 
 Example Code:
-<nav>
-	<ul class="scroll-nav">
+<nav class="main-nav thumb-scroll__nav">
+	<ul class="">
 		<li>Home</li>
 		<li>About</li>
 		<li>Services</li>
@@ -55,35 +60,26 @@ Example Code:
 */
 
 .js {
-
-	.main-nav {
+	.thumb-scroll__nav {
 		overflow: scroll;
 		-webkit-overflow-scrolling: touch;
-	}
-
-	.thumb-scroll--nav {
-		// Variables
-		@5px: (1em * (5 / @base-text-size));
 		
-		// Scroll Bar Compensation
-		margin-bottom: @5px;
-
 		// Mixins
-		.group();
+		.spacing-single(margin-bottom, 5);
 
-		li {
+		.main-nav__list li {
 			display: block;
 			float: left;
 		}
 	}
-
 }
 
 /*
 
-Name: Main Navigation - Thumb Scrolling
+Main Navigation - Responsive Collapse
 
-Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+Description:
+Standard responsive navigation styles for top reveal and left side reveal.
 
 Example Code:
 <nav>
@@ -95,3 +91,11 @@ Example Code:
 </nav>
 
 */
+
+
+// Top Reveal
+.js {
+	.responsive-collapse__nav {
+
+	}
+}

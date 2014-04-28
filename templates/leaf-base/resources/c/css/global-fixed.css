@@ -281,9 +281,9 @@ ul[class*="nav--horizontal"],
 menu.nav--horizontal,
 ol.nav--horizontal,
 ul.nav--horizontal,
-menu.main-nav--list,
-ol.main-nav--list,
-ul.main-nav--list {
+menu.main-nav__list,
+ol.main-nav__list,
+ul.main-nav__list {
   padding-left: 0;
   list-style: none outside none;
 }
@@ -849,28 +849,58 @@ body:hover .simple-reveal-container.is-current button {
 }
 /*
 
-Name: Horizontal Navigation
-Description: Absolute baseline for horizontal navigation sets.
+Horizontal Navigation
+
+Description:
+Absolute baseline for horizontal navigation sets.
 
 */
 /*
 
-Name: Main Navigation List
-Description: Absolute baseline for main navigation.
+Main Navigation List
+
+Description:
+Absolute baseline for main navigation.
 
 */
-.main-nav--list li {
+.main-nav__list li {
   padding-left: 0.3125em;
   padding-right: 0.3125em;
 }
-.main-nav--list li:first-of-type {
+.main-nav__list li:first-of-type {
   padding-left: 0;
 }
 /*
 
-Name: Main Navigation
+Main Navigation - Thumb Scrolling
 
-Description: Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+Description:
+Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
+
+Example Code:
+<nav class="main-nav">
+	<ul class="scroll-nav">
+		<li>Home</li>
+		<li>About</li>
+		<li>Services</li>
+	</ul>
+</nav>
+
+*/
+.js .thumb-scroll__nav {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 0.3125em;
+}
+.js .thumb-scroll__nav .main-nav__list li {
+  display: block;
+  float: left;
+}
+/*
+
+Name: Main Navigation - Responsive Collapse
+
+Description: Standard responsive navigation styles for top reveal and left side reveal.
 
 Example Code:
 <nav>
@@ -882,31 +912,6 @@ Example Code:
 </nav>
 
 */
-.js .main-nav {
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-.js .thumb-scroll--nav {
-  margin-bottom: 0.3125em;
-  /* Mixins */
-}
-.lte7 .js .thumb-scroll--nav {
-  zoom: 1;
-}
-.js .thumb-scroll--nav:before,
-.js .thumb-scroll--nav:after {
-  content: "\0020";
-  height: 0;
-  display: block;
-  overflow: hidden;
-}
-.js .thumb-scroll--nav:after {
-  clear: both;
-}
-.js .thumb-scroll--nav li {
-  display: block;
-  float: left;
-}
 /*
 
 Name: Naked Links
@@ -934,7 +939,7 @@ Description: Default Site Links, inherited from link--naked
 .list--x li,
 [class*="nav--horizontal"] li,
 .nav--horizontal li,
-.main-nav--list li {
+.main-nav__list li {
   display: inline-block;
 }
 .wrapper {
