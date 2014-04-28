@@ -1,0 +1,82 @@
+
+/*
+
+Main Navigation - Responsive Collapse
+
+Description:
+Standard responsive navigation styles for top reveal and left side reveal.
+
+Example Code:
+<nav class="relative">
+    <ul class="collapse__nav--top">
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+    </ul>
+</nav>
+
+*/
+
+.mobile-menu {
+    .show-hidden();
+}
+
+.js {
+
+    [class*="collapse__nav"] {
+        li {
+            display: block;
+            padding: 0;
+        }
+
+        li a {
+            display: inherit;
+
+            // Mixins
+            .spacing-shorthand(padding, 5, 0);
+        }
+    }
+
+    .collapse__nav {
+        @max-height: (1em * (500 / @base-text-size));
+
+        &--top,
+        &--side {
+            position: relative;
+            overflow: hidden;
+
+            // Mixins
+            .transition(max-height, 0.4s, ease-in-out);
+        }
+
+        &--top {
+            max-height: 0;
+
+            &.is-current {
+                max-height: @max-height;
+            }
+        }
+    }
+}
+
+// IE8 Fallback
+// .js {
+//     .collapse__nav {
+        
+//         &--top,
+//         &--side {
+//             width: 100%;
+//             position: absolute;
+//         }
+
+//         &--top {
+//             top: -100%;
+//             left: 0;
+//         }
+
+//         &--side {
+//             top: 0;
+//             left: -100%;
+//         }
+//     }
+// }

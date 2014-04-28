@@ -1,3 +1,7 @@
+.mobile-menu {
+    .is-hidden();
+}
+
 /*
 
 Horizontal Navigation
@@ -27,12 +31,11 @@ Absolute baseline for main navigation.
 
 // Main Navigation Customization
 .main-nav {
-	@5px: (1em * (5 / @base-text-size));
-
 	&__list {
+		margin-top: 0;
+
 		li {
-			padding-left: @5px;
-			padding-right: @5px;
+			.spacing-horizontal(padding, 5);
 
 			&:first-of-type {
 				padding-left: 0;
@@ -74,28 +77,3 @@ Example Code:
 	}
 }
 
-/*
-
-Main Navigation - Responsive Collapse
-
-Description:
-Standard responsive navigation styles for top reveal and left side reveal.
-
-Example Code:
-<nav>
-	<ul class="scroll-nav">
-		<li>Home</li>
-		<li>About</li>
-		<li>Services</li>
-	</ul>
-</nav>
-
-*/
-
-
-// Top Reveal
-.js {
-	.responsive-collapse__nav {
-
-	}
-}

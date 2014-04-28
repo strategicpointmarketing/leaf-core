@@ -1,6 +1,9 @@
-<nav id="main-nav" class="main-nav thumb-scroll__nav" role="navigation">
-    <div class="wrapper">
-        <ul class="main-nav__list">
+<nav id="main-nav" class="main-nav" role="navigation">
+    <div class="wrapper relative">
+        <h3 class="mobile-menu">
+            <b class="is-hidden">Main Menu</b>
+        </h3>
+        <ul class="main-nav__list collapse__nav--top">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>

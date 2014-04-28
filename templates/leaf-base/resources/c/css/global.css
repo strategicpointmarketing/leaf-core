@@ -876,6 +876,32 @@ body:hover .simple-reveal-container.is-current button {
 .media-grid .object.gd-columns {
   float: none;
 }
+.mobile-menu {
+  /* Mixins */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0;
+  overflow: hidden;
+}
+.mobile-menu.focusable:active,
+.mobile-menu.focusable:focus {
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+  position: static;
+}
+body:hover .mobile-menu a,
+body:hover .mobile-menu input,
+body:hover .mobile-menu button {
+  display: none;
+}
 /*
 
 Horizontal Navigation
@@ -892,6 +918,9 @@ Description:
 Absolute baseline for main navigation.
 
 */
+.main-nav__list {
+  margin-top: 0;
+}
 .main-nav__list li {
   padding-left: 0.3125em;
   padding-right: 0.3125em;
@@ -907,8 +936,8 @@ Description:
 Instead of creating a whole responsive menu, just make the navigation scrollable using native phone touch gestures. This applies when the navigation would be too long for the device width.
 
 Example Code:
-<nav class="main-nav">
-	<ul class="scroll-nav">
+<nav class="main-nav thumb-scroll__nav">
+	<ul class="">
 		<li>Home</li>
 		<li>About</li>
 		<li>Services</li>
@@ -927,24 +956,10 @@ Example Code:
 }
 /*
 
-Name: Main Navigation - Responsive Collapse
+Naked Links
 
-Description: Standard responsive navigation styles for top reveal and left side reveal.
-
-Example Code:
-<nav>
-	<ul class="scroll-nav">
-		<li>Home</li>
-		<li>About</li>
-		<li>Services</li>
-	</ul>
-</nav>
-
-*/
-/*
-
-Name: Naked Links
-Description: Remove browser defaults from links.
+Description:
+Remove browser defaults from links.
 Purpose: To be used extended, though it can be used in markup.
 
 */
@@ -961,8 +976,10 @@ a:focus {
 }
 /*
 
-Name: Standard Links
-Description: Default Site Links, inherited from link--naked
+Standard Links
+
+Description:
+Default Site Links, inherited from link--naked
 
 */
 .list--x li,
@@ -1038,8 +1055,66 @@ Example Markup:
   .gm-third {
     width: 33.33333333333333%;
   }
+  /*
+
+Main Navigation - Responsive Collapse
+
+Description:
+Standard responsive navigation styles for top reveal and left side reveal.
+
+Example Code:
+<nav class="relative">
+    <ul class="collapse__nav--top">
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+    </ul>
+</nav>
+
+*/
+  .mobile-menu {
+    width: auto;
+    height: auto;
+    margin: 0;
+    position: relative;
+    clip: auto;
+  }
+  body:hover .mobile-menu a,
+  body:hover .mobile-menu input,
+  body:hover .mobile-menu button {
+    display: inline-block;
+  }
+  .lte7 body:hover .mobile-menu a,
+  .lte7 body:hover .mobile-menu input,
+  .lte7 body:hover .mobile-menu button {
+    display: inline;
+    zoom: 1;
+  }
+  .js [class*="collapse__nav"] li {
+    display: block;
+    padding: 0;
+  }
+  .js [class*="collapse__nav"] li a {
+    display: inherit;
+    padding: 0.3125em 0em;
+  }
+  .js .collapse__nav--top,
+  .js .collapse__nav--side {
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: max-height 0.4s ease-in-out;
+    -moz-transition: max-height 0.4s ease-in-out;
+    -o-transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
+  }
+  .js .collapse__nav--top {
+    max-height: 0;
+  }
+  .js .collapse__nav--top.is-current {
+    max-height: 31.25em;
+  }
 }
-@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
+@media only screen and (min-width: 48em) {
   /*
 
 Example Markup:
@@ -1414,11 +1489,6 @@ Example Markup:
   .gd-1of12 {
     width: 8.333333333333332%;
   }
-  /*
-
-Main Navigation Customization
-
-*/
   .wrapper {
     width: 80%;
     max-width: 63em;
