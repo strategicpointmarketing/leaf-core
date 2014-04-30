@@ -61,11 +61,11 @@ grunt.initConfig({
                 font: '<%= pkg.name %>-icons',
                 types: "eot,woff,ttf,svg",
                 hashes: false,
-                relativeFontPath: "<%= c_fonts %><%= pkg.name %>-icons/",
+                relativeFontPath: "/<%= c_fonts %><%= pkg.name %>-icons/",
                 template: "<%= r_fonts %><%= pkg.name %>-icons/template/template.css",
                 stylesheet: "less",
                 destHtml: "<%= c_fonts %><%= pkg.name %>-icons/",
-                embed: true
+                startCodepoint: 0xF101
             }
         }
     },
