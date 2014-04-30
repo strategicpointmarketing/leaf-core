@@ -1,6 +1,6 @@
 <nav id="main-nav" class="main-nav" role="navigation">
     <div class="wrapper relative">
-        <h3 class="mobile-menu">
+        <h3 class="mobile-menu icon--calendar">
             <b class="is-hidden">Main Menu</b>
         </h3>
         <ul class="main-nav__list collapse__nav--top">

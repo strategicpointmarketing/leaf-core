@@ -1,13 +1,9 @@
 {
-  "name": "leaf-core",
-  "version": "0.1.0",
+  "name": "leaf",
+  "version": "0.1.1",
   "author": {
     "name": "Trevor Pierce via Strategic Point Marketing",
     "url": "http://trevthewebdev.com/"
-  },
-  "main": "lib/grunt",
-  "scripts": {
-    "test": "grunt test"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -15,6 +11,7 @@
     "grunt-contrib-jshint": "0.8.0",
     "grunt-contrib-less": "~0.9.0",
     "grunt-contrib-cssmin": "~0.6.2",
-    "grunt-contrib-watch": "0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-webfont": "~0.3.4"
   }
 }

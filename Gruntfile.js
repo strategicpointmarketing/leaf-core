@@ -1,104 +1,109 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
+// Project configuration.
+grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+    
     // Task configuration.
     concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
-      dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
-      }
-    },
-    // uglify: {
-    //   my_target: {
-    //     files: [{
-    //       expand: true,
-    //       cwd: 'src/js',
-    //       src: '**/*.js',
-    //     }]
-    //   }
-    // },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {}
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
-      }
+        dist: {
+            src: ['lib/<%= pkg.name %>.js'],
+            dest: 'dist/<%= pkg.name %>.js'
+        }
     },
     qunit: {
-      files: ['test/**/*.html']
+        files: ['test/**/*.html']
     },
     watch: {
-      less: {
-        files: ['templates/leaf-base/resources/less/**/*.less'],
-        tasks: ['less'],
-        options: {
-          spawn: true,
+        less: {
+            files: ['<%= r_less %>**/*.less'],
+            tasks: ['less'],
+            options: {
+              spawn: true,
+            }
         }
-      }
     },
     less: {
-      development: {
-        options: {
-          paths: ["less"]
-        },
-        files: {
-          "templates/leaf-base/resources/c/css/global.css": "templates/leaf-base/resources/less/global.less",
-          "templates/leaf-base/resources/c/css/global-fixed.css": "templates/leaf-base/resources/less/global-fixed.less"
+        development: {
+            options: {
+                paths: ["less"]
+            },
+            files: {
+              "<%= c_css %>global.css": "<%= r_less %>global.less",
+              "<%= c_css %>global-fixed.css": "<%= r_less %>global-fixed.less"
+            }
         }
-      }
     },
     cssmin: {
-      minify: {
-        expand: true,
-        cwd: 'c/css/',
-        src: ['*.css', '!*.min.css'],
-        dest: 'c/css/',
-        ext: '.css'
-      }
-    }
-  });
+        minify: {
+            expand: true,
+            cwd: '<%= c_css %>',
+            src: ['*.css', '!*.min.css'],
+            dest: '<%= c_css %>',
+            ext: '.css'
+        }
+    },
+    webfont: {
+        // Icons
+        icons: {
 
-  // These plugins provide necessary tasks.
-  // grunt.loadNpmTasks('grunt-contrib-uglify');
-  // grunt.loadNpmTasks('grunt-contrib-qunit');
-  // grunt.loadNpmTasks('grunt-contrib-jshint');
-  // grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+            // Source SVGs
+            src: "<%= r_fonts %><%= pkg.name %>-icons/svg/*.svg",
 
-  // Default task.
-  grunt.registerTask('default', ['less']);
-  grunt.registerTask('development', ['less']);
-  grunt.registerTask('production', ['less', 'cssmin']);
+            // Destination Folder
+            dest: "<%= c_fonts %><%= pkg.name %>-icons/",
+
+            // Destination CSS
+            destCss: "<%= c_less %>",
+            options: {
+                font: '<%= pkg.name %>-icons',
+                types: "eot,woff,ttf,svg",
+                hashes: false,
+                relativeFontPath: "<%= c_fonts %><%= pkg.name %>-icons/",
+                template: "<%= r_fonts %><%= pkg.name %>-icons/template/template.css",
+                stylesheet: "less",
+                destHtml: "<%= c_fonts %><%= pkg.name %>-icons/",
+                embed: true
+            }
+        }
+    },
+
+    // Other Vars
+    project: "<%= pkg.name %>",
+    docroot: "",
+    views: "<%= docroot %>views/",
+    leaf_base: "<%= docroot %>templates/leaf-base/",
+    resources: "<%= leaf_base %>resources/",
+    compiled: "<%= resources %>c/",
+
+    // Complied
+    c_less: "<%= compiled %>less/",
+    c_css: "<%= compiled %>css/",
+    c_fonts: "<%= compiled %>fonts/",
+    c_js: "<%= compiled %>js/",
+
+    // Resources
+    r_less: "<%= resources %>less/",
+    r_fonts: "<%= resources %>fonts/",
+    r_js: "<%= resources %>js/",
+    r_images: "<%= resources %>images/",
+});
+
+// These plugins provide necessary tasks.
+// grunt.loadNpmTasks('grunt-contrib-uglify');
+// grunt.loadNpmTasks('grunt-contrib-concat');
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-less');
+grunt.loadNpmTasks('grunt-contrib-cssmin');
+grunt.loadNpmTasks('grunt-webfont');
+
+// Default task.
+grunt.registerTask('default', ['less']);
+grunt.registerTask('refresh', ['less', 'webfont']);
+grunt.registerTask('icons', ['webfont']);
+grunt.registerTask('development', ['less']);
+grunt.registerTask('production', ['less', 'cssmin']);
 
 };

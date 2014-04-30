@@ -46,8 +46,17 @@
 
     };
 
+    Client.twitterCalls = {
+        init: function() {
+            $('ul.tweets').queryTwitter({
+                
+            });
+        }
+    };
+
     // Call the script
-    // Client.defaultWindowScroll.init();
+    Client.defaultWindowScroll.init();
     Client.mainNavigation.init();
+    Client.twitterCalls.init();
 
 }( jQuery, window.Client = window.Client || {}, document ));

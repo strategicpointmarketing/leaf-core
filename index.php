@@ -16,6 +16,7 @@
 		<div class="wrapper">
 			
 			<h1 class="primary-heading paragon-text">Home</h1>
+			<ul class="tweets"></ul>
 
 		</div>
 	</main>

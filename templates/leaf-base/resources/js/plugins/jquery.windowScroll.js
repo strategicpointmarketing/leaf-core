@@ -8,13 +8,8 @@
             "targetElems": $(".js-scroll-btn"),
             "speed": 350,
             "offset": 20,
-            "easing": null,
             "beforeScroll": null,
             "afterScroll": null
-        },
-
-        vars: {
-            dataHashArray: []
         },
 
         init: function( config ) {
@@ -24,50 +19,57 @@
             if ( typeof config == 'object' ) {
                 self.config = $.extend( {}, self.config, config );
             }
-                
+
             // Bind the buttons
             this.bindButtons();
 
         },
 
         bindButtons: function() {
-            var self = this,
-                dataScollElem = $('[data-scroll-start], [data-scroll-start][href^="#"]'),
+            var dataScollElem = $('[data-scroll-start], [data-scroll-start][href^="#"]'),
                 hashElem = $('[href^="#"]').not('[data-scroll-start]');
 
             // Data-scroll-start Attribute Takes Priority
             if ( dataScollElem.length ) {
-
-                dataScollElem.on('click', function( e ) {
-                    var $this = $(this),
-                        dataScrollData = $this.data('scroll-start');
-
-                    // Call Button Events Setup
-                    self.buttonEvents.call( self, $this, dataScrollData );
-
-                    // Prevent Normal Click Event
-                    e.preventDefault();
-                });
-
+                this.bindDataScrollBtn( dataScollElem );
             }
 
             if ( hashElem.length ) {
-
-                hashElem.on('click', function( e ) {
-                    var $this = $(this),
-                        hashElemDataRaw = $this.attr('href'),
-                        hashElemDataRefined = hashElemDataRaw.substring(1);
-
-                    // Call Button Events Setup
-                    self.buttonEvents.call( self, $this, hashElemDataRefined );
-
-                    // Prevent Normal Click Event
-                    e.preventDefault();
-
-                });
-
+                this.bindHashElemBtn( hashElem );
             }
 
+        },
+
+        bindDataScrollBtn: function( elem ) {
+            var self = this;
+
+            elem.on('click', function( e ) {
+                var $this = $(this),
+                    dataScrollData = $this.data('scroll-start');
+
+                // Call Button Events Setup
+                self.buttonEvents.call( self, $this, dataScrollData );
+
+                // Prevent Normal Click Event
+                e.preventDefault();
+            });
+        },
+
+        bindHashElemBtn: function( elem ) {
+            var self = this;
+
+            elem.on('click', function( e ) {
+                var $this = $(this),
+                    hashElemDataRaw = $this.attr('href'),
+                    hashElemDataRefined = hashElemDataRaw.substring(1);
+
+                // Call Button Events Setup
+                self.buttonEvents.call( self, $this, hashElemDataRefined );
+
+                // Prevent Normal Click Event
+                e.preventDefault();
+
+            });
         },
 
         buttonEvents: function( thisBtn, sourceData ) {
@@ -109,11 +111,11 @@
 
             }, this.config.speed)
                 .promise()
-                    .done(function(){
-                        if( typeof self.config.afterScroll == "function" ) {
-                            self.config.afterScroll();
-                        }
-                    });
+                .done(function(){
+                    if( typeof self.config.afterScroll == "function" ) {
+                        self.config.afterScroll();
+                    }
+                });
         },
 
         setupBeforeScroll: function() {
